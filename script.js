@@ -1,10 +1,12 @@
 function buypass() {
   if (!window.PaymentRequest) return alert("Payment Request APIに未対応なため使えません");
 
+  const baseurl = location.origin.includes("github.io") ? location.origin + "/buypass" : location.origin;
+
   new PaymentRequest(
     [
       {
-        supportedMethods: "./pay/main.json",
+        supportedMethods: baseurl + "/pay/main.json",
         data: {
           url: document.querySelector("input").value
         },
@@ -14,7 +16,7 @@ function buypass() {
       total: {
         label: "_",
         amount: {
-          value: "1", currency: "USD"
+          value: "1", currency: "YEN"
         },
       },
     }
