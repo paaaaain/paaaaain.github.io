@@ -1,4 +1,6 @@
 function buypass() {
+  if (!window.PaymentRequest) return alert("Payment Request APIに未対応なため使えません");
+
   new PaymentRequest(
     [
       {
@@ -12,7 +14,7 @@ function buypass() {
       total: {
         label: "_",
         amount: {
-          value: "100", currency: "YEN"
+          value: "1", currency: "USD"
         },
       },
     }
