@@ -1,24 +1,24 @@
 self.addEventListener("canmakepayment", (e) => e.respondWith(true));
 
 self.addEventListener("paymentrequest", async (event) => {
-    let reject;
-    let promise = new Promise((_, reject_) => {
-        reject = reject_;
-    });
 
-    event.respondWith(promise);
+  event.respondWith(new Promise(async (resolve, reject) => {
+    try {
+      const client = await event.openWindow("./navigate.html");
 
-    let client = await event.openWindow("./navigate.html");
-    if (!client) {
-        return reject("Failed to open window.");
+      if (!client) return reject("Failed to open window.");
+
+      /**
+       * @type { string }
+       */
+      const url = event.methodData[0].data?.url;
+
+      client.postMessage({
+        url: url.match(/https?:\/\//) ? url : "https://google.com"
+      });
+
+    } catch (error) {
+      reject(error);
     }
-
-    let data = event.methodData[0].data;
-    let urlToOpen = data ? data.url : "https://google.com";
-
-    if (!urlToOpen.startsWith("http")) {
-        return reject("Not a valid URL to open.")
-    }
-
-    client.postMessage({ url: urlToOpen });
+  }));
 });
