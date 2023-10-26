@@ -3,7 +3,6 @@
     "./pay.json"
   ],
   "supported_origins": [
-    "https://*",
-    "http://*"
+    "https://*"
   ]
 }

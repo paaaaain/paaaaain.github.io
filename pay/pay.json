@@ -3,7 +3,12 @@
   "short_name": "Buypass",
   "icons": [
     {
-      "src": "./icon.png",
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/buypass/favicon.ico",
       "sizes": "48x48",
       "type": "image/png"
     }
