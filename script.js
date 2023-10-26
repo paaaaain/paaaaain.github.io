@@ -12,7 +12,7 @@ function buypass() {
       total: {
         label: "_",
         amount: {
-          value: "100", currency: "JPN"
+          value: "100", currency: "YEN"
         },
       },
     }
