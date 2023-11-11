@@ -3,13 +3,13 @@
   "short_name": "Buypass",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "/pay/favicon.ico",
       "sizes": "48x48",
       "type": "image/x-icon"
     }
   ],
   "serviceworker": {
-    "src": "./sw.js",
+    "src": "/pay/sw.js",
     "use_cache": false
   }
 }
