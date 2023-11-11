@@ -4,7 +4,7 @@ function buypass() {
   new PaymentRequest(
     [
       {
-        supportedMethods: baseurl + "/main.json",
+        supportedMethods: location.origin + "/main.json",
         data: {
           url: document.querySelector("input").value
         },
