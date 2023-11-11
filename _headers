@@ -1,2 +1,2 @@
 /pay/*
-  Link: rel=payment-method-manifest
+  Link: <pay.json>; rel="payment-method-manifest"
